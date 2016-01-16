@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * A Directory maintains a instance of BucketFactory.  If there is a need to create a new Bucket, the code should go
  * to Directory to ask for the BucketFactory instance and call newBucket.
  *
- * Created by wbao on 1/11/2016.
+ * Created by Weifeng Bao on 1/11/2016.
  */
 class BucketFactory {
     private Directory directory;

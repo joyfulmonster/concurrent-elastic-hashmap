@@ -3,7 +3,7 @@ package org.joyfulmonster.util.concurrent.internal;
 /**
  * This is a collection of methods that will help analyze the performance of the HashMap.
  *
- * Created by wbao on 1/12/2016.
+ * Created by Weifeng Bao on 1/12/2016.
  */
 public interface MetricsSupport {
     /**

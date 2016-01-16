@@ -3,9 +3,9 @@ package org.joyfulmonster.util.concurrent.internal;
 /**
  * It is the interface provides metrics info for Buckets.
  *
- * Created by wbao on 1/12/2016.
+ * Created by Weifeng Bao on 1/12/2016.
  */
-public interface BucketMetricsSupport {
+interface BucketMetricsSupport {
     /**
      *
      * @return

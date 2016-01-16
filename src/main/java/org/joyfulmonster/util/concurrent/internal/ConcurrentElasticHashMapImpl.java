@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicReferenceArray;
 /**
  * The entrypoint implementation of the hashmap.
  *
- * Created by wbao on 1/11/2016.
+ * Created by Weifeng Bao on 1/11/2016.
  */
 public class ConcurrentElasticHashMapImpl<K, V> implements MetricsSupport {
 
@@ -59,7 +59,7 @@ public class ConcurrentElasticHashMapImpl<K, V> implements MetricsSupport {
         initBucketCount = lowestUpperBound(initBucketCount);
         // if the loadfactor is larger than 1, there maybe some unexpected behavior, regulate the value here.
         bucketLoadFactor = (bucketLoadFactor < MAX_BUCKET_LOADFACTOR) ? bucketLoadFactor : MAX_BUCKET_LOADFACTOR;
-        directory = Directory.create(initBucketCount, bucketSize, bucketLoadFactor, totalEntryCount, totalSplitCount);
+        directory = DirectoryFactory.create(initBucketCount, bucketSize, bucketLoadFactor, totalEntryCount, totalSplitCount);
     }
 
     /**

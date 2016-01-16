@@ -6,7 +6,7 @@ import org.junit.Test;
 /**
  * Sanity put/get/delete function test without concurrency.
  * 
- * Created by wbao on 1/11/2016.
+ * Created by Weifeng Bao on 1/11/2016.
  */
 
 public class BasicTest {

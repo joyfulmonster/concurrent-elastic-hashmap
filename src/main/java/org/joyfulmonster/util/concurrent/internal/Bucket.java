@@ -10,7 +10,7 @@ package org.joyfulmonster.util.concurrent.internal;
  *  LocalDepth is the number of low-order bits in the hash code whose contents are fixed for this bucket.
  *  All entry hash codes in the bucket have the same value in those bits which is equal to bucketID
  *
- * Created by wbao on 1/11/2016.
+ * Created by Weifeng Bao on 1/11/2016.
  */
 interface Bucket<K, V> {
     /**

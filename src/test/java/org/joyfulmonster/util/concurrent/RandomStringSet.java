@@ -3,7 +3,7 @@ package org.joyfulmonster.util.concurrent;
 import java.util.Random;
 
 /**
- * Created by wbao on 1/9/2016.
+ * Created by Weifeng Bao on 1/9/2016.
  */
 public class RandomStringSet {
     private static final char[] symbols;

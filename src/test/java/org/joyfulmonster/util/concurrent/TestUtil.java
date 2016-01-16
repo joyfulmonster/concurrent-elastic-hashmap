@@ -3,7 +3,7 @@ package org.joyfulmonster.util.concurrent;
 import org.joyfulmonster.util.concurrent.ConcurrentElasticHashMap;
 
 /**
- * Created by wbao on 1/12/2016.
+ * Created by Weifeng Bao on 1/12/2016.
  */
 public class TestUtil {
     public static void printMetrics(ConcurrentElasticHashMap map) {

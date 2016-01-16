@@ -10,7 +10,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * 1. A bucket is a hashmap.
  * 2. this implementation uses Linear probing algorithm to resolve collision.
  *
- * Created by wbao on 1/11/2016.
+ * Created by Weifeng Bao on 1/11/2016.
  */
 class LinearProbingBucketImpl<K, V> implements Bucket<K, V>, BucketMetricsSupport {
 
@@ -226,10 +226,10 @@ class LinearProbingBucketImpl<K, V> implements Bucket<K, V>, BucketMetricsSuppor
         disallowAccess();
         totalSplitCount.incrementAndGet();
 
-        Bucket[] newBuckets = new LinearProbingBucketImpl[2];
         int newLocalDepth = localDepth + 1;
         int newBucketID = 1 << localDepth;
 
+        Bucket[] newBuckets = new Bucket[2];
         newBuckets[0] = directory.getBucketFactory().newBucket(newLocalDepth, bucketID);
         newBuckets[1] = directory.getBucketFactory().newBucket(newLocalDepth, bucketID | newBucketID);
 
@@ -261,7 +261,7 @@ class LinearProbingBucketImpl<K, V> implements Bucket<K, V>, BucketMetricsSuppor
         } catch (BucketOverflowError soe1) {
             throw new IllegalStateException("sgement overflow occured after split");
         }
-        directory.onSplit(newBuckets);
+        directory.onSplit(this, newBuckets);
         return result;
     }
 

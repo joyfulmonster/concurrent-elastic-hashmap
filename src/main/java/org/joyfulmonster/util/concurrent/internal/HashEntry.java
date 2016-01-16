@@ -5,7 +5,7 @@ import java.util.Map;
 /**
  * The Entry that stores into Bucket.
  *
- * Created by wbao on 1/11/2016.
+ * Created by Weifeng Bao on 1/11/2016.
  */
 class HashEntry<K,V> implements Map.Entry<K, V> {
     private final K key;

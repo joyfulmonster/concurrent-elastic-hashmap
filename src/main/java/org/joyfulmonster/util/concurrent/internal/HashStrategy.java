@@ -3,7 +3,7 @@ package org.joyfulmonster.util.concurrent.internal;
 /**
  * It is intended to register different hash algorithms.
  *
- * Created by wbao on 1/11/2016.
+ * Created by Weifeng Bao on 1/11/2016.
  */
 public class HashStrategy {
     public static HashStrategy getInstance() {
