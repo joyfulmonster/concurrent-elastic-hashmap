@@ -1,4 +1,4 @@
-package org.joyfulmonster.util.internal;
+package org.joyfulmonster.util.concurrent.internal;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

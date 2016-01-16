@@ -1,4 +1,4 @@
-package org.joyfulmonster.util.internal;
+package org.joyfulmonster.util.concurrent.internal;
 
 /**
  * This is a collection of methods that will help analyze the performance of the HashMap.

@@ -1,4 +1,4 @@
-package org.joyfulmonster.util;
+package org.joyfulmonster.util.concurrent;
 
 import java.util.Random;
 

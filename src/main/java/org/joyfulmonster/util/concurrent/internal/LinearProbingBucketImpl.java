@@ -1,4 +1,4 @@
-package org.joyfulmonster.util.internal;
+package org.joyfulmonster.util.concurrent.internal;
 
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReferenceArray;
@@ -237,7 +237,7 @@ class LinearProbingBucketImpl<K, V> implements Bucket<K, V>, BucketMetricsSuppor
         for (int i = 0; i < bucketSize; i++) {
             HashEntry<K, V> entry = entries.get(i);
             if (entry != null) {
-                if ((entry.getKeyHashCode() & newBucketID) == 0) {
+                if (newBuckets[0].canHandle(entry.getKeyHashCode())) {
                     newBuckets[0].transferEntry(entry.getKey(), entry.getValue(), entry.getKeyHashCode());
                 } else {
                     newBuckets[1].transferEntry(entry.getKey(), entry.getValue(), entry.getKeyHashCode());

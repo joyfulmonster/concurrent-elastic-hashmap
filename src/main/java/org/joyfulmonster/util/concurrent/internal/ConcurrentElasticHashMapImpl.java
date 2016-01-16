@@ -1,4 +1,4 @@
-package org.joyfulmonster.util.internal;
+package org.joyfulmonster.util.concurrent.internal;
 
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReferenceArray;
@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicReferenceArray;
  *
  * Created by wbao on 1/11/2016.
  */
-public class ConcurrentExtendiableHashMapImpl<K, V> implements MetricsSupport {
+public class ConcurrentElasticHashMapImpl<K, V> implements MetricsSupport {
 
     private static final String ILLEGAL_ARGUMENT_EXPECTION_MSG = "The key or value can not be null.";
 
@@ -41,18 +41,18 @@ public class ConcurrentExtendiableHashMapImpl<K, V> implements MetricsSupport {
     /**
      * Creates a map with default configuration parameters.
      */
-    public ConcurrentExtendiableHashMapImpl() {
+    public ConcurrentElasticHashMapImpl() {
         this(DEFAULT_BUCKET_SIZE, DEFAULT_BUCKET_COUNT, DEFAULT_BUKCET_LOAD_FACTOR);
     }
 
     /**
-     * Constructor create a ConcurrentExtendiableHashMap
+     * Constructor create a ConcurrentElasticHashMap
      *
      * @param bucketSize        The number of entries in a bucket.
      * @param initBucketCount  The initial buckets to be allocated, it maps to the depth of Directory.
      * @param bucketLoadFactor    The bucket load factor.
      */
-    public ConcurrentExtendiableHashMapImpl(int bucketSize, int initBucketCount, float bucketLoadFactor) {
+    public ConcurrentElasticHashMapImpl(int bucketSize, int initBucketCount, float bucketLoadFactor) {
         totalSplitCount = new AtomicInteger(0);
         totalEntryCount = new AtomicInteger(0);
         // the bucketCount equals to directory size, it needs to be a power 2 value.

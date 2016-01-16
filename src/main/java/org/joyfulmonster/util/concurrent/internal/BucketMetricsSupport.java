@@ -1,4 +1,4 @@
-package org.joyfulmonster.util.internal;
+package org.joyfulmonster.util.concurrent.internal;
 
 /**
  * It is the interface provides metrics info for Buckets.

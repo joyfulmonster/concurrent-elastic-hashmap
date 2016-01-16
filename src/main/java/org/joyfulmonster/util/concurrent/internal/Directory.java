@@ -1,4 +1,4 @@
-package org.joyfulmonster.util.internal;
+package org.joyfulmonster.util.concurrent.internal;
 
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
@@ -133,7 +133,7 @@ class Directory extends AtomicReference<AtomicReferenceArray<Bucket>> {
 				 * double directory size
 				 */
                 int newDirSize = bucketsNumber * 2;
-                if (newDirSize > ConcurrentExtendiableHashMapImpl.MAX_BUCKET_COUNT) {
+                if (newDirSize > ConcurrentElasticHashMapImpl.MAX_BUCKET_COUNT) {
                     throw new IllegalStateException("directory size limit exceeded");
                 }
 

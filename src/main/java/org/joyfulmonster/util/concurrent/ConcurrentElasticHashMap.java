@@ -1,7 +1,7 @@
-package org.joyfulmonster.util;
+package org.joyfulmonster.util.concurrent;
 
-import org.joyfulmonster.util.internal.ConcurrentExtendiableHashMapImpl;
-import org.joyfulmonster.util.internal.MetricsSupport;
+import org.joyfulmonster.util.concurrent.internal.ConcurrentElasticHashMapImpl;
+import org.joyfulmonster.util.concurrent.internal.MetricsSupport;
 
 /**
  * This is a simplified implementation of a CurrentHashMap based on Extendiable Hashing algorithm.
@@ -16,17 +16,17 @@ import org.joyfulmonster.util.internal.MetricsSupport;
  * @param <K> type of keys stored in the map
  * @param <V> type of values stored in the map
  */
-public class ConcurrentExtendiableHashMap<K, V> {
+public class ConcurrentElasticHashMap<K, V> {
     private static final String ILLEGAL_ARGUMENT_EXPECTION_MSG = "The key or value can not be null.";
 
-    private ConcurrentExtendiableHashMapImpl<K, V> service;
+    private ConcurrentElasticHashMapImpl<K, V> service;
 
-    public ConcurrentExtendiableHashMap() {
-        service = new ConcurrentExtendiableHashMapImpl<K, V>();
+    public ConcurrentElasticHashMap() {
+        service = new ConcurrentElasticHashMapImpl<K, V>();
     }
 
-    public ConcurrentExtendiableHashMap(int bucketSize, int initBucketCount, float loadFactor) {
-        service = new ConcurrentExtendiableHashMapImpl<K, V>(bucketSize, initBucketCount, loadFactor);
+    public ConcurrentElasticHashMap(int bucketSize, int initBucketCount, float loadFactor) {
+        service = new ConcurrentElasticHashMapImpl<K, V>(bucketSize, initBucketCount, loadFactor);
     }
 
     /**

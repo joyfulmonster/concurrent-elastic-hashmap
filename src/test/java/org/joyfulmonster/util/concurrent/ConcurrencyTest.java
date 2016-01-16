@@ -1,4 +1,4 @@
-package org.joyfulmonster.util;
+package org.joyfulmonster.util.concurrent;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -23,14 +23,14 @@ public class ConcurrencyTest {
 	 */
 	@Test	
 	public void testConcurrentPutsDifferentKeys() throws InterruptedException, ExecutionException {
-		ConcurrentExtendiableHashMap<String,Integer> map = new ConcurrentExtendiableHashMap<>();
+		ConcurrentElasticHashMap<String,Integer> map = new ConcurrentElasticHashMap<>();
 		runConcurrentPutDifferentKeys(map, 8, 100000);
 		TestUtil.printMetrics(map);
 	}
 
     @Test
     public void testConcurrentPutsSameKeys() throws InterruptedException, ExecutionException {
-        ConcurrentExtendiableHashMap<String,Integer> map = new ConcurrentExtendiableHashMap<>();
+        ConcurrentElasticHashMap<String,Integer> map = new ConcurrentElasticHashMap<>();
         runConcurrentPutSameKeySet(map, 10, 100000);
         TestUtil.printMetrics(map);
     }
@@ -42,11 +42,11 @@ public class ConcurrencyTest {
 	 */
 	@Test
 	public void testCompareSmallAndLargerBuckets() throws InterruptedException, ExecutionException {
-		ConcurrentExtendiableHashMap<String,Integer> regularMap = new ConcurrentExtendiableHashMap<>();
+		ConcurrentElasticHashMap<String,Integer> regularMap = new ConcurrentElasticHashMap<>();
 		runConcurrentPutDifferentKeys(regularMap, 4, 800000);
 		TestUtil.printMetrics(regularMap);
 
-		ConcurrentExtendiableHashMap<String,Integer> map = new ConcurrentExtendiableHashMap<>(262144, 2, 0.9f);
+		ConcurrentElasticHashMap<String,Integer> map = new ConcurrentElasticHashMap<>(262144, 2, 0.9f);
 		runConcurrentPutDifferentKeys(map, 4, 800000);
 		TestUtil.printMetrics(map);
 
@@ -62,8 +62,8 @@ public class ConcurrencyTest {
 	 */
 	@Test
 	public void testConcurrentGetOnSameKeySets() throws InterruptedException, ExecutionException {
-		ConcurrentExtendiableHashMap<String, Integer> map =
-				new ConcurrentExtendiableHashMap<>();
+		ConcurrentElasticHashMap<String, Integer> map =
+				new ConcurrentElasticHashMap<>();
 		runConcurrentGetOnSameKeySets(map, 6, 20000, 4000000L);
 		TestUtil.printMetrics(map);
 	}
@@ -72,7 +72,7 @@ public class ConcurrencyTest {
 	 */
 	@Test
 	public void testConcurrentPutRemoveGet() throws InterruptedException, ExecutionException {
-		ConcurrentExtendiableHashMap<String,Integer> map = new ConcurrentExtendiableHashMap<>();
+		ConcurrentElasticHashMap<String,Integer> map = new ConcurrentElasticHashMap<>();
 		runConcurrentPutRemoveGet(map, 6, 20000, 1000000L);
 		TestUtil.printMetrics(map);
 	}
@@ -86,7 +86,7 @@ public class ConcurrencyTest {
 	 * @throws InterruptedException
 	 * @throws ExecutionException
 	 */
-	public void runConcurrentPutRemoveGet(final ConcurrentExtendiableHashMap<String, Integer> map,
+	public void runConcurrentPutRemoveGet(final ConcurrentElasticHashMap<String, Integer> map,
 										  final int threadCount, final int keyCount,
                                           final long totalExcutionTimes)
 			throws InterruptedException, ExecutionException {
@@ -217,7 +217,7 @@ public class ConcurrencyTest {
 	 * @throws InterruptedException
 	 * @throws ExecutionException
 	 */
-	private void runConcurrentGetOnSameKeySets(final ConcurrentExtendiableHashMap<String, Integer> map, int threadCount, final int keyCount, final long runTimes)
+	private void runConcurrentGetOnSameKeySets(final ConcurrentElasticHashMap<String, Integer> map, int threadCount, final int keyCount, final long runTimes)
 			throws InterruptedException, ExecutionException {
 
 		final RandomStringSet keySet = new RandomStringSet(keyCount, 32, 1337L);
@@ -270,7 +270,7 @@ public class ConcurrencyTest {
 	 * @throws InterruptedException
 	 * @throws ExecutionException
 	 */
-	private void runConcurrentPutDifferentKeys(final ConcurrentExtendiableHashMap<String, Integer> map, int threadCount, final int keySetSize)
+	private void runConcurrentPutDifferentKeys(final ConcurrentElasticHashMap<String, Integer> map, int threadCount, final int keySetSize)
 			throws InterruptedException, ExecutionException {
 
 		final RandomStringSet keySet = new RandomStringSet(keySetSize, 64, 8888L);
@@ -324,7 +324,7 @@ public class ConcurrencyTest {
      * @throws InterruptedException
      * @throws ExecutionException
      */
-    private void runConcurrentPutSameKeySet(final ConcurrentExtendiableHashMap<String, Integer> map, int threadCount, final int keySetSize)
+    private void runConcurrentPutSameKeySet(final ConcurrentElasticHashMap<String, Integer> map, int threadCount, final int keySetSize)
             throws InterruptedException, ExecutionException {
 
         final RandomStringSet keySet = new RandomStringSet(keySetSize, 32, 8888L);
